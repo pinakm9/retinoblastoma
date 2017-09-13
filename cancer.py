@@ -24,8 +24,10 @@ def read_data(file):
 def fit_plot(obs, fit, limits, xlabel, ylabel, img_name):
 	fig, ax = plt.subplots(figsize=(8,5))
 	x = np.linspace(*limits)
-	ax.plot(x, obs(x), color = 'blue')
-	ax.plot(x, fit(x), color = 'red')
+	y = [obs(t) for t in x]
+	ax.plot(x, y, color = 'blue')
+	y = [fit(t) for t in x]
+	ax.plot(x, y, color = 'red')
 	ax.set_xlabel(xlabel)
 	ax.set_ylabel(ylabel)
 	plt.savefig(img_name + '.png')
