@@ -1,7 +1,12 @@
-import asgn1, asgn2, warnings
+import asgn1, asgn2, warnings, os
 
 warnings.filterwarnings('ignore')
-asgn1.assignment_1_i()
-asgn1.assignment_1_ii()
-asgn1.assignment_1_iii()
-asgn1.assignment_1_iv()
+try: 
+    os.makedirs('plots')
+except OSError:
+    pass
+"""asgn1.assignment_1_a()
+asgn1.assignment_1_b()
+asgn1.assignment_1_c()
+asgn1.assignment_1_d()"""
+asgn2.assignment_2_a()

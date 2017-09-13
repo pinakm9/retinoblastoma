@@ -4,10 +4,10 @@ unilateral = [] # Stores unilateral retinoblastoma data set
 p1, p2 = 0., 0. # Random hit probabilities
 ecdf = 0 # Empirical cdf of age at the time of diagnosis of unilateral retinoblastoma 
 
-def assignment_1_i():
+def assignment_1_a():
 	global unilateral, ecdf
-	print('Problem 1(i)\n{}'.format(div))
-	unilateral = read_data("./../data/03_cancer_unilateralretinoblastoma.csv")[0]
+	print('Problem 1(a)\n{}'.format(div))
+	unilateral = read_data("./../data/03_cancer_unilateralretinoblastoma.csv")[1][0]
 	ecdf = lambda t: sm.distributions.ECDF(unilateral)(t)*rb_rate
 
 	def model(t, p): 
@@ -22,9 +22,9 @@ def assignment_1_i():
 	fit_plot(ecdf, result, [0, 73], 'age in months at the time of diagnosis',\
 	 'probability of being diagnosed with retinoblastoma', 'single random factor (unilateral)')
 
-def assignment_1_ii():
+def assignment_1_b():
 	global p1, p2
-	print('Problem 1(ii)(requires ~3 seconds to finish calculation)\n{}'.format(div))
+	print('Problem 1(b)(requires ~3 seconds to finish calculation)\n{}'.format(div))
 	
 	def model(t, p):
 		i, T =  1, int(t)
@@ -45,8 +45,8 @@ def assignment_1_ii():
 	fit_plot(ecdf, result, [0, 73], 'age in months at the time of diagnosis',\
 	 'probability of being diagnosed with retinoblastoma', 'two random factors (unilateral)')
 
-def assignment_1_iii():
-	print('Problem 1(iii)\n{}'.format(div))
+def assignment_1_c():
+	print('Problem 1(c)\n{}'.format(div))
 
 	def model(t, a):
 		i, T =  1, int(t)
@@ -73,8 +73,8 @@ def assignment_1_iii():
 	 'probability of being diagnosed with retinoblastoma', 'decaying p2 (unilateral)')
 				
 
-def assignment_1_iv():
-	print('Problem 1(iv) (requires ~8 seconds to finish calculation)\n{}'.format(div))
+def assignment_1_d():
+	print('Problem 1(d) (requires ~8 seconds to finish calculation)\n{}'.format(div))
 
 	def model(t, a):
 		i, T =  1, int(t)
