@@ -31,3 +31,10 @@ def fit_plot(obs, fit, limits, xlabel, ylabel, img_name):
 	ax.set_xlabel(xlabel)
 	ax.set_ylabel(ylabel)
 	plt.savefig(img_name + '.png')
+
+# Calculates relative error in l2 norm
+def rel_err(exact, approx, interval):
+	a, b = interval
+	numerator = integrate.quad(lambda x: (exact(x)-approx(x))**2, a, b)[0]
+	denominator = integrate.quad(lambda x: exact(x)**2, a, b)[0]
+	return 100*(numerator/denominator)**0.5
