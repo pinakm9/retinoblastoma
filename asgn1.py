@@ -44,7 +44,7 @@ def assignment_1_ii():
 	fit_plot(ecdf, result, [0, 73], 'age in months at the time of diagnosis',\
 	 'probability of being diagnosed with retinoblastoma', 'two random factors (unilateral)')
 
-def assignment_1_iv():
+def assignment_1_iii():
 	print('Problem 1(iii)\n{}'.format(div))
 
 	def model(t, a):
@@ -73,7 +73,7 @@ def assignment_1_iv():
 				
 
 def assignment_1_iv():
-	print('Problem 1(iii)\n{}'.format(div))
+	print('Problem 1(iv)\n{}'.format(div))
 
 	def model(t, a):
 		i, T =  1, int(t)
