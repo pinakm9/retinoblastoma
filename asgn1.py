@@ -18,13 +18,12 @@ def assignment_1_a():
 
 	p = op.minimize_scalar(loss, bounds=(1e-10, 1e-2), method='bounded').x
 	result = lambda t: model(t, p)
-	print('Best fit p = {:.2e}, relative error = {:.2}%\n{}'.format(p, rel_err(ecdf, result, [0, 73]), div))
-	fit_plot(ecdf, result, [0, 73], 'age in months at the time of diagnosis',\
-	 'probability of being diagnosed with retinoblastoma', 'single random factor (unilateral)')
+	print('Best fit p = {:2.3}, relative error = {:2.3}%\n{}'.format(p, rel_err(ecdf, result, [0, 73]), div))
+	fit_plot(ecdf, result, [0, 73], 'single random factor 1(a)')
 
 def assignment_1_b():
 	global p1, p2
-	print('Problem 1(b)(requires ~3 seconds to finish calculation)\n{}'.format(div))
+	print('Problem 1(b) (requires ~3 seconds to finish calculation)\n{}'.format(div))
 	
 	def model(t, p):
 		i, T =  1, int(t)
@@ -40,10 +39,9 @@ def assignment_1_b():
 
 	p1, p2 = op.minimize(loss, [40e-8, 1e-8]).x
 	result = lambda t: model(t, [p1, p2])
-	print('p1 = {:.2e}, p2 = {:.2e},\nrelative error upto 36 months =  {:.2}%, overall relative error = {:.2}%\n{}'\
+	print('p1 = {:2.3}, p2 = {:2.3},\nrelative error upto 36 months =  {:2.3}%, overall relative error = {:2.3}%\n{}'\
 		.format(p1, p2, rel_err(ecdf, result, [0, 36]), rel_err(ecdf, result, [0, 73]), div))
-	fit_plot(ecdf, result, [0, 73], 'age in months at the time of diagnosis',\
-	 'probability of being diagnosed with retinoblastoma', 'two random factors (unilateral)')
+	fit_plot(ecdf, result, [0, 73], 'two random factors 1(b)')
 
 def assignment_1_c():
 	print('Problem 1(c)\n{}'.format(div))
@@ -68,9 +66,8 @@ def assignment_1_c():
 
 	a = op.minimize_scalar(loss, bounds=(0, 5), method='bounded').x
 	result = lambda t: model(t, a)
-	print('a = {:.3}, relative error =  {:.2}%\n{}'.format(a, rel_err(ecdf, result, [0, 73]), div))
-	fit_plot(ecdf, result, [0, 73], 'age in months at the time of diagnosis',\
-	 'probability of being diagnosed with retinoblastoma', 'decaying p2 (unilateral)')
+	print('a = {:2.3}, relative error =  {:2.3}%\n{}'.format(a, rel_err(ecdf, result, [0, 73]), div))
+	fit_plot(ecdf, result, [0, 73], 'decaying p2 1(c)')
 				
 
 def assignment_1_d():
@@ -98,7 +95,6 @@ def assignment_1_d():
 
 	a = op.minimize_scalar(loss).x
 	result = lambda t: model(t, a)
-	print('a = {:.3}, relative error =  {:.2}%\n{}'.format(a, rel_err(ecdf, result, [0, 73]), div))
-	fit_plot(ecdf, result, [0, 73], 'age in months at the time of diagnosis',\
-	 'probability of being diagnosed with retinoblastoma', 'decaying p1 (unilateral)')
+	print('a = {:2.3}, relative error =  {:2.3}%\n{}'.format(a, rel_err(ecdf, result, [0, 73]), div))
+	fit_plot(ecdf, result, [0, 73], 'decaying p1 1(d)')
 				
